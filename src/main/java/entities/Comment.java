@@ -2,22 +2,18 @@ package entities;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
 public class Comment {
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
+    @ManyToOne
+    private Ticket ticket;
     @Column
     private String title;
-
     @Column
     private String content;
 }
