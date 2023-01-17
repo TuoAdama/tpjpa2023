@@ -9,3 +9,4 @@ public interface EntityRepository<T>{
     List<T> getAll();
     T find(long id);
 }
+
