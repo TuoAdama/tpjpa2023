@@ -28,7 +28,6 @@ public class JpaTest {
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
 
-
 		try {
 			authorRepository.create(new Author());
 			tagRepository.create(new Tag());
