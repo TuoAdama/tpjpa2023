@@ -20,7 +20,7 @@ public class JpaTest {
 	 */
 	public static void main(String[] args) {
 
-		EntityRepository<Ticket> ticketRepository = new TicketRepository();
+		TicketRepository ticketRepository = new TicketRepository();
 
 
 		EntityManager manager = EntityManagerHelper.getEntityManager();
@@ -28,15 +28,7 @@ public class JpaTest {
 		tx.begin();
 
 		try {
-			Ticket t1 = new Ticket();
-			t1.setSolve(false);
-			t1.setTitle("Ticket 1");
-			t1.setContent("solving ticket 1");
-			t1.setPublishedDate(LocalDateTime.now());
-			Author author = new Author();
-			author.setName("Adama Tuo");
-			t1.setAuthor(author);
-			ticketRepository.create(t1);
+			ticketRepository.delete(1);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
