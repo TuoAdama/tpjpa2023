@@ -8,11 +8,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import fr.istic.taa.jaxrs.domain.Pet;
+import fr.istic.taa.jaxrs.entities.Pet;
 import io.swagger.v3.oas.annotations.Parameter;
 
 @Path("/pet")
-@Produces({"application/json", "application/xml"})
+@Produces({"application/json"}) //, "applica<tion/xml"
 public class PetResource {
 
   @GET

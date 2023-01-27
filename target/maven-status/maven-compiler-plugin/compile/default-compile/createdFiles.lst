@@ -1,0 +1,16 @@
+fr\istic\taa\jaxrs\dao\implement\PersonDao.class
+fr\istic\taa\jaxrs\entities\Comment.class
+fr\istic\taa\jaxrs\entities\Person.class
+fr\istic\taa\jaxrs\dao\generic\AbstractJpaDao.class
+fr\istic\taa\jaxrs\dao\generic\IGenericDao.class
+fr\istic\taa\jaxrs\dao\implement\AuthorDao.class
+fr\istic\taa\jaxrs\rest\PetResource.class
+fr\istic\taa\jaxrs\entities\Ticket.class
+fr\istic\taa\jaxrs\entities\Tag.class
+fr\istic\taa\jaxrs\rest\PersonResource.class
+fr\istic\taa\jaxrs\entities\Author.class
+fr\istic\taa\jaxrs\dao\generic\EntityManagerHelper.class
+fr\istic\taa\jaxrs\dao\implement\PetDao.class
+fr\istic\taa\jaxrs\entities\Pet.class
+fr\istic\taa\jaxrs\TestApplication.class
+fr\istic\taa\jaxrs\RestServer.class

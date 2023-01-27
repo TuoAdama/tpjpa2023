@@ -1,0 +1,16 @@
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\dao\implement\AuthorDao.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\dao\generic\EntityManagerHelper.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\entities\Tag.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\entities\Author.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\RestServer.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\dao\generic\AbstractJpaDao.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\TestApplication.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\dao\generic\IGenericDao.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\rest\PetResource.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\entities\Ticket.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\entities\Person.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\entities\Pet.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\entities\Comment.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\dao\implement\PetDao.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\rest\PersonResource.java
+C:\Users\BAH\Desktop\SIR\JAX-RS-OpenAPI\src\main\java\fr\istic\taa\jaxrs\dao\implement\PersonDao.java

@@ -1,4 +1,4 @@
-package fr.istic.taa.jaxrs.domain;
+package fr.istic.taa.jaxrs.entities;
 
 import java.util.ArrayList;
 import java.util.List;
