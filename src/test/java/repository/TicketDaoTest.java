@@ -4,21 +4,21 @@ import entities.Author;
 import entities.Ticket;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import repositories.BaseRepository;
-import repositories.TicketRepository;
+import jpa.dao.BaseDAO;
+import jpa.dao.TicketDao;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TicketRepositoryTest {
+public class TicketDaoTest {
 
-    BaseRepository ticketRepository;
+    BaseDAO ticketRepository;
     Author author;
     @BeforeEach
     void setUp(){
-        ticketRepository = new TicketRepository();
+        ticketRepository = new TicketDao();
         ticketRepository.deleteAll();
         author = new Author();
         author.setName("Tuo");

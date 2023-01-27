@@ -1,12 +1,11 @@
 package jpa;
 
 import entities.Ticket;
-import repositories.BaseRepository;
-import repositories.TicketRepository;
+import jpa.dao.BaseDAO;
+import jpa.dao.TicketDao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import java.util.Arrays;
 
 public class JpaTest {
 
@@ -17,7 +16,7 @@ public class JpaTest {
 
 		Class<Ticket> t = Ticket.class;
 
-		BaseRepository<Ticket> ticketRepository = new TicketRepository();
+		BaseDAO<Ticket> ticketRepository = new TicketDao();
 
 
 		EntityManager manager = EntityManagerHelper.getEntityManager();

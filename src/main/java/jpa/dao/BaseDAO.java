@@ -1,13 +1,12 @@
-package repositories;
+package jpa.dao;
 
-import entities.Ticket;
 import jpa.EntityManagerHelper;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.*;
 import java.util.List;
 
-public class BaseRepository<T> {
+public class BaseDAO<T> {
 
     String className;
     String queryString;
@@ -18,7 +17,7 @@ public class BaseRepository<T> {
     protected CriteriaQuery<T> query;
     protected Root<T> from;
 
-    public BaseRepository(Class<T> t){
+    public BaseDAO(Class<T> t){
         this.t = t;
         this.query = cb.createQuery(this.t);
         this.className = t.getName().split("\\.")[1];
