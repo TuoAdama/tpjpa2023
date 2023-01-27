@@ -38,5 +38,4 @@ public class AuthorResource {
             @Parameter Author author){
         authDao.delete(author);
     }
-
 }

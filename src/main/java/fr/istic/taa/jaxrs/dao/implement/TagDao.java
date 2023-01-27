@@ -1,11 +1,11 @@
 package fr.istic.taa.jaxrs.dao.implement;
 
 import fr.istic.taa.jaxrs.dao.generic.AbstractJpaDao;
-import fr.istic.taa.jaxrs.entities.Person;
+import fr.istic.taa.jaxrs.entities.Tag;
 
-public class TagDao extends AbstractJpaDao<Long, Person> {
+public class TagDao extends AbstractJpaDao<Long, Tag> {
 
     public TagDao() {
-        this.setClazz(Person.class);
+        this.setClazz(Tag.class);
     }
 }
