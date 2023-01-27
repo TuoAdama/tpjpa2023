@@ -1,5 +1,6 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
@@ -20,6 +21,7 @@ public class Ticket implements Serializable {
     private long id;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
+    @JsonIgnore
     private Author author;
 
     @OneToMany(mappedBy = "ticket")
