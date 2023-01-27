@@ -1,17 +1,12 @@
 package jpa;
 
-import entities.Author;
 import entities.Ticket;
-import repositories.EntityRepository;
+import repositories.BaseRepository;
 import repositories.TicketRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.PersistenceContext;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class JpaTest {
 
@@ -20,7 +15,9 @@ public class JpaTest {
 	 */
 	public static void main(String[] args) {
 
-		TicketRepository ticketRepository = new TicketRepository();
+		Class<Ticket> t = Ticket.class;
+
+		BaseRepository<Ticket> ticketRepository = new TicketRepository();
 
 
 		EntityManager manager = EntityManagerHelper.getEntityManager();
@@ -28,7 +25,7 @@ public class JpaTest {
 		tx.begin();
 
 		try {
-			ticketRepository.delete(1);
+			ticketRepository.getAll().forEach(ticket -> System.out.println(ticket.getTitle()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
