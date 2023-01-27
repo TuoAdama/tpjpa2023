@@ -4,7 +4,8 @@ import dao.generic.AbstractJpaDao;
 import entities.Ticket;
 
 public class TicketDao extends AbstractJpaDao<Long, Ticket> {
-    TicketDao(){
-        setClazz(Ticket.class);
+
+    public TicketDao() {
+        this.setClazz(Ticket.class);
     }
 }
