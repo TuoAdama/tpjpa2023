@@ -25,8 +25,15 @@ public class AuthorResource {
 
     @GET
     @Path("/find/{authorId}")
-    public String getAuthorById(@PathParam("authorId") Long authorId)  {
-        return "";
+    public Response getAuthorById(@PathParam("authorId") Long authorId)  {
+        Author author = authDao.findOne(authorId);
+        Status status = Status.OK;
+        if(author == null){
+            status = Status.NOT_FOUND;
+        }
+        return Response.status(status)
+                .entity(author)
+                .build();
     }
 
     @POST
