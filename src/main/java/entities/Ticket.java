@@ -31,7 +31,7 @@ public class Ticket implements Serializable {
     private List<Tag> tags;
 
     @Column
-    private boolean isSolve;
+    private boolean solve;
     @Column
     private String title;
     @Column

@@ -6,6 +6,8 @@ import io.swagger.v3.oas.annotations.Parameter;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import java.util.HashMap;
+import java.util.Map;
 
 @Path("/author")
 @Produces({"application/json"})
@@ -53,5 +55,17 @@ public class AuthorResource {
         return Response.status(Response.Status.OK)
                 .entity(id)
                 .build();
+    }
+
+    public static Map<String, String> validAuthor(Author author){
+        Map<String, String> errors = new HashMap<>();
+        if(author == null){
+            errors.put("author", "l'auteur ne doit pas être null");
+            return errors;
+        }
+        if(author.getName().isEmpty()){
+            errors.put("name", "le nom de l'auteur ne peut être null");
+        }
+        return errors;
     }
 }
