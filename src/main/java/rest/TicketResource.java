@@ -1,12 +1,16 @@
 package rest;
+import dao.AuthorDao;
 import dao.TicketDao;
 
+import dto.TicketCreateDTO;
+import entities.Author;
 import entities.Ticket;
 import io.swagger.v3.oas.annotations.Parameter;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +19,7 @@ import java.util.Map;
 public class TicketResource {
 
     TicketDao ticketDao = new TicketDao();
+    AuthorDao authorDao = new AuthorDao();
 
     @GET
     @Consumes("application/json")
@@ -30,23 +35,34 @@ public class TicketResource {
     @Consumes("application/json")
     @Path("/add")
     public Response addTicket(
-            @Parameter(description = "Ticket object that needs to be added to the store", required = true) Ticket ticket) {
+            @Parameter(description = "Ticket object that needs to be added to the store", required = true) TicketCreateDTO ticketDTO) {
         Map<String,Object> errors = new HashMap<>();
-        if(ticket.getTitle().isEmpty()){
-            errors.put("title", "le titre ne doit pas ếtre vide");
+        Ticket ticket = ticketDTO.getTicket();
+        Long authorId = ticketDTO.getAuthorId();
+        Author author = null;
+        if(ticket.getTitle() == null || ticket.getTitle().isEmpty()){
+            errors.put("title", "le titre ne doit pas être vide");
         }
-        if(ticket.getContent().isEmpty()){
+        if(ticket.getContent() == null  || ticket.getContent().isEmpty()) {
             errors.put("content", "Le ticket doit avoir une description (content)");
         }
-        Map<String, String> authorErrors = AuthorResource.validAuthor(ticket.getAuthor());
-        if(authorErrors.size() != 0){
-            errors.put("author", authorErrors);
+
+        if(authorId == null){
+            errors.put("author", "l'id de auteur ne peut être null");
+        }else{
+            author = authorDao.findOne(authorId);
+            if(author == null){
+                errors.put("author", "l'id de n'auteur n'existe pas");
+            }
         }
         if (errors.size() != 0){
             return Response.status(Status.BAD_REQUEST)
                     .entity(errors)
                     .build();
         }
+        ticket.setAuthor(author);
+        ticket.setPublishedDate(LocalDateTime.now());
+        ticketDao.save(ticket);
         return Response.ok().build();
     }
 
