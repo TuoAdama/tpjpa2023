@@ -60,7 +60,9 @@ public class TicketResource {
         ticket.setAuthor(author);
         ticket.setPublishedDate(LocalDateTime.now());
         ticketDao.save(ticket);
-        return Response.ok().build();
+        return Response.ok()
+                .entity(ticket)
+                .build();
     }
 
     @DELETE
