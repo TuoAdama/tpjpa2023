@@ -27,7 +27,7 @@ public class TicketResource {
 
     @GET
     @Consumes("application/json")
-    @Path("/{ticketId}")
+    @Path("/find/{ticketId}")
     public Response getTicketById(@PathParam("ticketId") Long ticketId)  {
         Ticket ticket = ticketDao.findOne(ticketId);
         return Response.status(ticket != null ? Status.OK : Status.NOT_FOUND)

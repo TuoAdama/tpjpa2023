@@ -32,10 +32,14 @@ public class TagResource {
     }
 
     @GET
-    @Path("/{tagId}")
-    public Tag getAuthorById(@PathParam("tagId") Long tagId)  {
-        // return person
-        return new Tag();
+    @Path("/find/{tagId}")
+    public Response getAuthorById(@PathParam("tagId") Long tagId)  {
+        Tag tag = tagDao.findOne(tagId);
+        if(tag == null){
+            return Response.status(Response.Status.NOT_FOUND)
+                    .build();
+        }
+        return Response.ok().entity(tag).build();
     }
 
     @DELETE
