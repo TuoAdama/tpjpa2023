@@ -1,5 +1,6 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,5 +16,6 @@ public class Author implements Serializable {
     @Column
     private String name;
     @OneToMany(mappedBy = "author")
+    @JsonIgnore
     private List<Ticket> tickets;
 }

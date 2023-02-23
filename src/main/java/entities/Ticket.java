@@ -22,7 +22,6 @@ public class Ticket implements Serializable {
     private long id;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Author author;
 
     @OneToMany(mappedBy = "ticket")
