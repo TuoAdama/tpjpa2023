@@ -2,34 +2,46 @@ package rest;
 import dao.CommentDao;
 import entities.Comment;
 import io.swagger.v3.oas.annotations.Parameter;
+import utils.ResponseHandler;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
+
+@Path("/comment")
+@Produces({"application/json"})
 public class CommentResource {
 
     CommentDao commentDao = new CommentDao();
 
     @GET
-    @Path("/{commentId}")
-    public Comment getCommentById(@PathParam("commentId") Long ticketId) {
-        // return person
-        return new Comment();
+    @Path("/find/{id}")
+    public Response find(@PathParam("id") Long id) {
+        Comment comment = commentDao.findOne(id);
+        if(comment == null){
+            return ResponseHandler.notFoundResponse();
+        }
+        return ResponseHandler.successResponse(comment);
     }
 
     @POST
     @Consumes("application/json")
-    @Path("/add_comment")
-    public Response addComment(
+    @Path("/add")
+    public Response add(
             @Parameter(description = "Ticket object that needs to be added to the store", required = true) Comment comment) {
         commentDao.save(comment);
-        return Response.ok().entity("SUCCESS").build();
+        return ResponseHandler.successResponse(comment);
     }
 
     @DELETE
     @Consumes("application/json")
-    @Path("/delete_comment")
-    public void deleteComment( @Parameter Comment comment ){
+    @Path("/delete/{id}")
+    public Response delete(@PathParam("id") Long id){
+        Comment comment = commentDao.findOne(id);
+        if(comment == null){
+            return ResponseHandler.notFoundResponse();
+        }
         commentDao.delete(comment);
+        return ResponseHandler.successResponse(comment);
     }
 }

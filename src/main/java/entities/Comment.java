@@ -1,5 +1,7 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,7 +13,8 @@ public class Comment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Ticket ticket;
     @Column
     private String title;

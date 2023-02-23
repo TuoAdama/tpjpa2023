@@ -15,7 +15,7 @@ public class Author implements Serializable {
     private long id;
     @Column
     private String name;
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Ticket> tickets;
 }
