@@ -9,7 +9,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-@Path("/toto")
+@Path("/api")
 public class SwaggerResource {
 
     private static final Logger logger = Logger.getLogger(SwaggerResource.class.getName());

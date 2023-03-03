@@ -4,10 +4,7 @@ import java.util.Set;
 import javax.ws.rs.core.Application;
 
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
-import rest.AuthorResource;
-import rest.CommentResource;
-import rest.TagResource;
-import rest.TicketResource;
+import rest.*;
 
 public class TestApplication extends Application {
 
@@ -21,7 +18,7 @@ public class TestApplication extends Application {
         clazzes.add(CommentResource.class);
         clazzes.add(TicketResource.class);
         clazzes.add(TagResource.class);
-
+        clazzes.add(SwaggerResource.class);
         return clazzes;
     }
 
