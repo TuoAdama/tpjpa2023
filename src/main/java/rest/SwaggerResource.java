@@ -15,7 +15,7 @@ public class SwaggerResource {
     private static final Logger logger = Logger.getLogger(SwaggerResource.class.getName());
 
     @GET
-    @Path("/index")
+    @Path("/")
     public byte[] Get1() {
         try {
             return Files.readAllBytes(FileSystems.getDefault().getPath("src/main/webapp/swagger/index.html"));

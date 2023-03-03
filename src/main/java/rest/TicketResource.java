@@ -7,10 +7,9 @@ import entities.Author;
 import entities.Tag;
 import entities.Ticket;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import utils.ResponseHandler;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import java.time.LocalDateTime;
@@ -117,5 +116,11 @@ public class TicketResource {
         return Response.status(Status.OK)
                 .entity(ticket)
                 .build();
+    }
+
+    @GET
+    @Path("/all")
+    public Response getAllTickets(){
+        return ResponseHandler.successResponse(ticketDao.findAll());
     }
 }

@@ -1,7 +1,9 @@
 package entities;
 
+import lombok.AccessLevel;
 import lombok.Data;
-import org.hibernate.annotations.Cascade;
+import lombok.Setter;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,12 +16,13 @@ import java.util.List;
 public class Ticket implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter(AccessLevel.NONE)
     private long id;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     private Author author;
 
-    @OneToMany(mappedBy = "ticket")
+    @OneToMany(mappedBy = "ticket", cascade = CascadeType.PERSIST)
     private List<Comment> comments;
 
     @ManyToMany
