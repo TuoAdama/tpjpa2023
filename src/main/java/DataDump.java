@@ -79,6 +79,7 @@ public class DataDump {
 
 
     public void dumpData(){
+        System.out.println("------------------------------------- DUMP --------------------");
         createAuthor();
         createTags();
     }

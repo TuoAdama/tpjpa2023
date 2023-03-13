@@ -23,24 +23,12 @@ import java.util.logging.Logger;
  *
  */
 public class RestServer extends Application {
-
-
-    @Override
-    public Set<Class<?>> getClasses() {
-        final Set<Class<?>> resources = new HashSet<>();
-        resources.add(OpenApiResource.class);
-        resources.add(AuthorResource.class);
-        resources.add(CommentResource.class);
-        resources.add(TagResource.class);
-        resources.add(SwaggerResource.class);
-        return resources;
-    }
-
     private static final Logger logger = Logger.getLogger(RestServer.class.getName());
 
     public static void main( String[] args ) {
 
         UndertowJaxrsServer ut = new UndertowJaxrsServer();
+
 
         TestApplication ta = new TestApplication();
 
@@ -50,13 +38,14 @@ public class RestServer extends Application {
         dataDump.setTicketDao(new TicketDao());
         dataDump.setCommentDao(new CommentDao());
         dataDump.setTagDao(new TagDao());
-        dataDump.dumpData(); // Fill database with fake data;
+        //dataDump.dumpData(); // Fill database with fake data;
 
         ut.deploy(ta);
 
         ut.start(
                 Undertow.builder()
                         .addHttpListener(8080, "localhost")
+
 
         );
         logger.info("JAX-RS based micro-service running!");

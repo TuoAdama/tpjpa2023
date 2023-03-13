@@ -1,4 +1,6 @@
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import javax.ws.rs.core.Application;
@@ -19,6 +21,7 @@ public class TestApplication extends Application {
         clazzes.add(TicketResource.class);
         clazzes.add(TagResource.class);
         clazzes.add(SwaggerResource.class);
+        clazzes.add(Configuration.class);
         return clazzes;
     }
 
