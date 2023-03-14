@@ -3,7 +3,8 @@ package utils;
 import javax.ws.rs.core.Response;
 
 public class ResponseHandler {
-    public static Response successResponse(Object entity){
+    public static Response successResponse(Object entity){  // unsubscribe function doesn't need to do anything in this
+
         return Response
                 .ok()
                 .entity(entity)

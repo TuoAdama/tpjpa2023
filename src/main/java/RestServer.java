@@ -4,18 +4,10 @@ import dao.AuthorDao;
 import dao.CommentDao;
 import dao.TagDao;
 import dao.TicketDao;
-import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 import io.undertow.Undertow;
 import org.jboss.resteasy.plugins.server.undertow.UndertowJaxrsServer;
-import rest.AuthorResource;
-import rest.CommentResource;
-import rest.SwaggerResource;
-import rest.TagResource;
-
 import javax.ws.rs.core.Application;
-import java.util.HashSet;
 import java.util.Locale;
-import java.util.Set;
 import java.util.logging.Logger;
 
 /**
@@ -51,3 +43,8 @@ public class RestServer extends Application {
         logger.info("JAX-RS based micro-service running!");
     }
 }
+
+
+// Débouchés
+// Programme de formations
+// Fichers
