@@ -3,6 +3,7 @@ package rest;
 import dao.TagDao;
 import entities.Tag;
 import io.swagger.v3.oas.annotations.Parameter;
+import utils.ResponseHandler;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -48,5 +49,11 @@ public class TagResource {
     public void deleteTag(
             @Parameter Tag tag){
         tagDao.delete(tag);
+    }
+
+    @GET
+    @Path("/all")
+    public Response getTags(){
+        return ResponseHandler.successResponse(tagDao.findAll());
     }
 }

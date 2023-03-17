@@ -3,11 +3,13 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 import rest.*;
 
+@ApplicationPath("/")
 public class TestApplication extends Application {
 
 
