@@ -124,4 +124,13 @@ public class TicketResource {
     public Response getAllTickets(){
         return ResponseHandler.successResponse(ticketDao.findAll());
     }
+
+
+    @PUT
+    @Path("/update")
+    @Consumes("application/json")
+    public Response update(Ticket ticket){
+        ticketDao.update(ticket);
+        return ResponseHandler.successResponse(ticket);
+    }
 }

@@ -2,6 +2,7 @@ package rest;
 
 import dao.TagDao;
 import entities.Tag;
+import entities.Ticket;
 import io.swagger.v3.oas.annotations.Parameter;
 import utils.ResponseHandler;
 
@@ -29,7 +30,7 @@ public class TagResource {
                     .build();
         }
         tagDao.save(tag);
-        return Response.ok().build();
+        return ResponseHandler.successResponse(tag);
     }
 
     @GET
