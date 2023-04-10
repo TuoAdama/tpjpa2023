@@ -61,7 +61,6 @@ public class DataDump {
         for (int i = 0; i < NUM_OF_COMMENT_PER_TICKET; i++) {
             Comment comment = new Comment();
             comment.setContent(faker.lorem().sentence(10));
-            comment.setTitle(faker.lorem().word());
             comments.add(comment);
         }
         return comments;

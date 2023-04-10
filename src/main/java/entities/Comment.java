@@ -18,8 +18,8 @@ public class Comment implements Serializable {
     @ManyToOne(cascade = CascadeType.MERGE)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Ticket ticket;
-    @Column
-    private String title;
+    @OneToOne
+    private Author author;
     @Column
     private String content;
 }

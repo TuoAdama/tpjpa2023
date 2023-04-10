@@ -1,11 +1,13 @@
 package rest;
 import dao.CommentDao;
 import entities.Comment;
+import entities.Ticket;
 import io.swagger.v3.oas.annotations.Parameter;
 import utils.ResponseHandler;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 
 @Path("/comment")
@@ -43,5 +45,12 @@ public class CommentResource {
         }
         commentDao.delete(comment);
         return ResponseHandler.successResponse(comment);
+    }
+
+    @GET
+    @Path("/ticket/{id}")
+    public Response getTicketComments(@PathParam("id") Long ticketId){
+        List<Comment> comments = commentDao.getTicketComments(ticketId);
+        return ResponseHandler.successResponse(comments);
     }
 }
