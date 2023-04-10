@@ -1,5 +1,7 @@
 package rest;
+import dao.AuthorDao;
 import dao.CommentDao;
+import entities.Author;
 import entities.Comment;
 import entities.Ticket;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -8,6 +10,7 @@ import utils.ResponseHandler;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.logging.Logger;
 
 
 @Path("/comment")
@@ -15,6 +18,7 @@ import java.util.List;
 public class CommentResource {
 
     CommentDao commentDao = new CommentDao();
+    AuthorDao authorDao = new AuthorDao();
 
     @GET
     @Path("/find/{id}")
@@ -32,6 +36,8 @@ public class CommentResource {
     public Response add(
             @Parameter(description = "Ticket object that needs to be added to the store", required = true) Comment comment) {
         commentDao.save(comment);
+        Long authorId = commentDao.findOne(comment.getId()).getAuthor().getId();
+        comment.setAuthor(authorDao.findOne(authorId));
         return ResponseHandler.successResponse(comment);
     }
 
