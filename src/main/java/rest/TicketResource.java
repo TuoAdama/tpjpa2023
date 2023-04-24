@@ -9,10 +9,13 @@ import entities.Ticket;
 import io.swagger.v3.oas.annotations.Parameter;
 import utils.ResponseHandler;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,7 +61,9 @@ public class TicketResource {
                     .build();
         }
         ticket.setAuthor(author);
-        ticket.setPublishedDate(LocalDateTime.now());
+        Calendar createdAt = Calendar.getInstance();
+        ticket.setCreatedAt(createdAt);
+        ticket.setUpdatedAt(createdAt);
         ticketDao.save(ticket);
         return Response.ok()
                 .entity(ticket)
@@ -72,7 +77,6 @@ public class TicketResource {
         Ticket ticket = ticketDao.findOne(id);
         if(ticket == null)
             return Response.status(Status.NOT_FOUND).build();
-
         return Response.ok().entity(ticket).build();
     }
 

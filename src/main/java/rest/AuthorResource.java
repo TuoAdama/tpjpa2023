@@ -3,11 +3,14 @@ package rest;
 import dao.AuthorDao;
 import entities.Author;
 import io.swagger.v3.oas.annotations.Parameter;
+import org.hibernate.type.TimeZoneType;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.Time;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 @Path("/author")
 @Produces({"application/json"})
@@ -41,6 +44,10 @@ public class AuthorResource {
     @Path("/add")
     public Response addAuthor(
             @Parameter(description = "Author object that needs to be added to the store", required = true) Author author) {
+
+        Calendar createdAt = Calendar.getInstance(TimeZone.getDefault());
+        author.setCreatedAt(createdAt);
+        author.setUpdatedAt(createdAt);
         authDao.save(author);
         return Response.status(Response.Status.OK)
                 .entity(author)

@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Calendar;
 
 @Entity
 @Data
@@ -22,4 +23,10 @@ public class Comment implements Serializable {
     private Author author;
     @Column
     private String content;
+
+    @Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Calendar createdAt;
+
+    @Column(name = "updated_at")
+    private Calendar updatedAt;
 }

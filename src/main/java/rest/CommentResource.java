@@ -9,6 +9,8 @@ import utils.ResponseHandler;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -35,6 +37,9 @@ public class CommentResource {
     @Path("/add")
     public Response add(
             @Parameter(description = "Ticket object that needs to be added to the store", required = true) Comment comment) {
+        Calendar createdAt = Calendar.getInstance();
+        comment.setCreatedAt(createdAt);
+        comment.setUpdatedAt(createdAt);
         commentDao.save(comment);
         Long authorId = commentDao.findOne(comment.getId()).getAuthor().getId();
         comment.setAuthor(authorDao.findOne(authorId));

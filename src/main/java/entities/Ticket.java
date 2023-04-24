@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import java.util.Calendar;
 import java.util.List;
 
 @Entity
@@ -34,6 +35,12 @@ public class Ticket implements Serializable {
     private String title;
     @Column
     private String content;
-    @Column
-    private LocalDateTime publishedDate;
+
+    @Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Calendar createdAt;
+    @Column(name = "updated_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Calendar updatedAt;
+
 }
