@@ -5,7 +5,7 @@
 ### Choix du persistence-unit
 Dans le fichier [EntityManagerHelper.java](src/main/java/dao/generic/EntityManagerHelper.java), remplacez le nom du persistance-unit "mysql" par "dev".
 
-Lancez le serveur de base de données en executant la commande suivante en fonction de vôtre système d'exploitation.
+Lancez le serveur de base de données en executant la commande suivante en fonction de votre système d'exploitation.
 
 #### Linux:
 ```shell
