@@ -18,8 +18,15 @@ public class Author implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
     private long id;
-    @Column
+    @Column(nullable = false)
     private String name;
+
+    @Column(unique = true, nullable = false)
+    private String email;
+
+
+    @Column(nullable = false)
+    private String password;
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Ticket> tickets;

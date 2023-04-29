@@ -3,12 +3,10 @@ package rest;
 import dao.AuthorDao;
 import entities.Author;
 import io.swagger.v3.oas.annotations.Parameter;
-import org.hibernate.type.TimeZoneType;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import java.sql.Time;
 import java.util.Calendar;
 import java.util.TimeZone;
 
@@ -49,7 +47,8 @@ public class AuthorResource {
         author.setCreatedAt(createdAt);
         author.setUpdatedAt(createdAt);
         authDao.save(author);
-        return Response.status(Response.Status.OK)
+        return Response
+                .status(Response.Status.OK)
                 .entity(author)
                 .build();
     }
