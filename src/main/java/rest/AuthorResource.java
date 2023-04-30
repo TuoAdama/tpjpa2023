@@ -3,11 +3,13 @@ package rest;
 import dao.AuthorDao;
 import entities.Author;
 import io.swagger.v3.oas.annotations.Parameter;
+import utils.ResponseHandler;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import java.util.Calendar;
+import java.util.Map;
 import java.util.TimeZone;
 
 @Path("/author")
@@ -68,5 +70,18 @@ public class AuthorResource {
         return Response.status(Response.Status.OK)
                 .entity(id)
                 .build();
+    }
+
+    @POST
+    @Consumes("application/json")
+    @Path("/login")
+    public Response onLogin(Map<String, String> credentials){
+        String username = credentials.get("username");
+        String password = credentials.get("password");
+        Author author = authDao.authenticate(username, password);
+        if(author != null){
+            return ResponseHandler.successResponse(author);
+        }
+        return ResponseHandler.notFoundResponse();
     }
 }
